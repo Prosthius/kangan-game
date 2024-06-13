@@ -33,6 +33,7 @@ gdjs.ClickAndDragLevelCode.mapOfGDgdjs_9546ClickAndDragLevelCode_9546GDTargetRou
 gdjs.ClickAndDragLevelCode.mapOfGDgdjs_9546ClickAndDragLevelCode_9546GDTarget3Objects1Objects = Hashtable.newFrom({"Target3": gdjs.ClickAndDragLevelCode.GDTarget3Objects1});
 gdjs.ClickAndDragLevelCode.mapOfGDgdjs_9546ClickAndDragLevelCode_9546GDRestartLevelButtonObjects1Objects = Hashtable.newFrom({"RestartLevelButton": gdjs.ClickAndDragLevelCode.GDRestartLevelButtonObjects1});
 gdjs.ClickAndDragLevelCode.mapOfGDgdjs_9546ClickAndDragLevelCode_9546GDNextLevelButtonObjects1Objects = Hashtable.newFrom({"NextLevelButton": gdjs.ClickAndDragLevelCode.GDNextLevelButtonObjects1});
+gdjs.ClickAndDragLevelCode.mapOfGDgdjs_9546ClickAndDragLevelCode_9546GDLevelSelectButtonObjects1Objects = Hashtable.newFrom({"LevelSelectButton": gdjs.ClickAndDragLevelCode.GDLevelSelectButtonObjects1});
 gdjs.ClickAndDragLevelCode.eventsList0 = function(runtimeScene) {
 
 {
@@ -277,6 +278,9 @@ gdjs.copyArray(runtimeScene.getObjects("LevelCompleteText"), gdjs.ClickAndDragLe
 gdjs.copyArray(runtimeScene.getObjects("LevelSelectButton"), gdjs.ClickAndDragLevelCode.GDLevelSelectButtonObjects1);
 gdjs.copyArray(runtimeScene.getObjects("NextLevelButton"), gdjs.ClickAndDragLevelCode.GDNextLevelButtonObjects1);
 gdjs.copyArray(runtimeScene.getObjects("RestartLevelButton"), gdjs.ClickAndDragLevelCode.GDRestartLevelButtonObjects1);
+/* Reuse gdjs.ClickAndDragLevelCode.GDTargetRoundButtonObjects1 */
+/* Reuse gdjs.ClickAndDragLevelCode.GDTargetRoundButton2Objects1 */
+/* Reuse gdjs.ClickAndDragLevelCode.GDTargetRoundButton3Objects1 */
 {for(var i = 0, len = gdjs.ClickAndDragLevelCode.GDLevelCompleteTextObjects1.length ;i < len;++i) {
     gdjs.ClickAndDragLevelCode.GDLevelCompleteTextObjects1[i].hide(false);
 }
@@ -291,6 +295,15 @@ gdjs.copyArray(runtimeScene.getObjects("RestartLevelButton"), gdjs.ClickAndDragL
 }
 }{for(var i = 0, len = gdjs.ClickAndDragLevelCode.GDGameInstructionsObjects1.length ;i < len;++i) {
     gdjs.ClickAndDragLevelCode.GDGameInstructionsObjects1[i].hide();
+}
+}{for(var i = 0, len = gdjs.ClickAndDragLevelCode.GDTargetRoundButtonObjects1.length ;i < len;++i) {
+    gdjs.ClickAndDragLevelCode.GDTargetRoundButtonObjects1[i].activateBehavior("Draggable", false);
+}
+}{for(var i = 0, len = gdjs.ClickAndDragLevelCode.GDTargetRoundButton2Objects1.length ;i < len;++i) {
+    gdjs.ClickAndDragLevelCode.GDTargetRoundButton2Objects1[i].activateBehavior("Draggable", false);
+}
+}{for(var i = 0, len = gdjs.ClickAndDragLevelCode.GDTargetRoundButton3Objects1.length ;i < len;++i) {
+    gdjs.ClickAndDragLevelCode.GDTargetRoundButton3Objects1[i].activateBehavior("Draggable", false);
 }
 }}
 
@@ -336,6 +349,28 @@ isConditionTrue_0 = isConditionTrue_1;
 }
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MovingObjectLevel", false);
+}}
+
+}
+
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("LevelSelectButton"), gdjs.ClickAndDragLevelCode.GDLevelSelectButtonObjects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+{let isConditionTrue_1 = false;
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+if (isConditionTrue_1) {
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.input.cursorOnObject(gdjs.ClickAndDragLevelCode.mapOfGDgdjs_9546ClickAndDragLevelCode_9546GDLevelSelectButtonObjects1Objects, runtimeScene, true, false);
+}
+isConditionTrue_0 = isConditionTrue_1;
+}
+if (isConditionTrue_0) {
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MainMenu", false);
 }}
 
 }

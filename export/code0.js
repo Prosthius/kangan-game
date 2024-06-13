@@ -24,6 +24,7 @@ gdjs.LeftClickLevelCode.mapOfGDgdjs_9546LeftClickLevelCode_9546GDTargetRoundButt
 gdjs.LeftClickLevelCode.mapOfGDgdjs_9546LeftClickLevelCode_9546GDTargetRoundButton3Objects1Objects = Hashtable.newFrom({"TargetRoundButton3": gdjs.LeftClickLevelCode.GDTargetRoundButton3Objects1});
 gdjs.LeftClickLevelCode.mapOfGDgdjs_9546LeftClickLevelCode_9546GDRestartLevelButtonObjects1Objects = Hashtable.newFrom({"RestartLevelButton": gdjs.LeftClickLevelCode.GDRestartLevelButtonObjects1});
 gdjs.LeftClickLevelCode.mapOfGDgdjs_9546LeftClickLevelCode_9546GDNextLevelButtonObjects1Objects = Hashtable.newFrom({"NextLevelButton": gdjs.LeftClickLevelCode.GDNextLevelButtonObjects1});
+gdjs.LeftClickLevelCode.mapOfGDgdjs_9546LeftClickLevelCode_9546GDLevelSelectButtonObjects1Objects = Hashtable.newFrom({"LevelSelectButton": gdjs.LeftClickLevelCode.GDLevelSelectButtonObjects1});
 gdjs.LeftClickLevelCode.eventsList0 = function(runtimeScene) {
 
 {
@@ -232,6 +233,28 @@ isConditionTrue_0 = isConditionTrue_1;
 }
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "ClickAndDragLevel", false);
+}}
+
+}
+
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("LevelSelectButton"), gdjs.LeftClickLevelCode.GDLevelSelectButtonObjects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+{let isConditionTrue_1 = false;
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+if (isConditionTrue_1) {
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.input.cursorOnObject(gdjs.LeftClickLevelCode.mapOfGDgdjs_9546LeftClickLevelCode_9546GDLevelSelectButtonObjects1Objects, runtimeScene, true, false);
+}
+isConditionTrue_0 = isConditionTrue_1;
+}
+if (isConditionTrue_0) {
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MainMenu", false);
 }}
 
 }

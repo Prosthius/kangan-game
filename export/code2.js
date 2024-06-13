@@ -51,6 +51,7 @@ gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDTargetRou
 gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDTargetRoundButton2Objects1Objects = Hashtable.newFrom({"TargetRoundButton2": gdjs.MovingObjectLevelCode.GDTargetRoundButton2Objects1});
 gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDRestartLevelButtonObjects1Objects = Hashtable.newFrom({"RestartLevelButton": gdjs.MovingObjectLevelCode.GDRestartLevelButtonObjects1});
 gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDNextLevelButtonObjects1Objects = Hashtable.newFrom({"NextLevelButton": gdjs.MovingObjectLevelCode.GDNextLevelButtonObjects1});
+gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDLevelSelectButtonObjects1Objects = Hashtable.newFrom({"LevelSelectButton": gdjs.MovingObjectLevelCode.GDLevelSelectButtonObjects1});
 gdjs.MovingObjectLevelCode.eventsList0 = function(runtimeScene) {
 
 {
@@ -258,10 +259,10 @@ let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
 {let isConditionTrue_1 = false;
 isConditionTrue_1 = false;
-isConditionTrue_1 = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+isConditionTrue_1 = gdjs.evtTools.input.cursorOnObject(gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDTargetRoundButtonObjects1Objects, runtimeScene, true, false);
 if (isConditionTrue_1) {
 isConditionTrue_1 = false;
-isConditionTrue_1 = gdjs.evtTools.input.cursorOnObject(gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDTargetRoundButtonObjects1Objects, runtimeScene, true, false);
+isConditionTrue_1 = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
 }
 isConditionTrue_0 = isConditionTrue_1;
 }
@@ -372,7 +373,7 @@ isConditionTrue_1 = gdjs.evtTools.input.cursorOnObject(gdjs.MovingObjectLevelCod
 isConditionTrue_0 = isConditionTrue_1;
 }
 if (isConditionTrue_0) {
-{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MovingObjectLevel", false);
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MouseOverLevel", false);
 }}
 
 }
@@ -394,7 +395,29 @@ isConditionTrue_1 = gdjs.evtTools.input.cursorOnObject(gdjs.MovingObjectLevelCod
 isConditionTrue_0 = isConditionTrue_1;
 }
 if (isConditionTrue_0) {
-{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MovingObjectLevel", false);
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MouseOverLevel", false);
+}}
+
+}
+
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("LevelSelectButton"), gdjs.MovingObjectLevelCode.GDLevelSelectButtonObjects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+{let isConditionTrue_1 = false;
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
+if (isConditionTrue_1) {
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.input.cursorOnObject(gdjs.MovingObjectLevelCode.mapOfGDgdjs_9546MovingObjectLevelCode_9546GDLevelSelectButtonObjects1Objects, runtimeScene, true, false);
+}
+isConditionTrue_0 = isConditionTrue_1;
+}
+if (isConditionTrue_0) {
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MainMenu", false);
 }}
 
 }
