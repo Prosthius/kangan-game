@@ -190,7 +190,7 @@ gdjs.copyArray(runtimeScene.getObjects("RestartLevelButton"), gdjs.LeftClickLeve
 }{for(var i = 0, len = gdjs.LeftClickLevelCode.GDLevelSelectButtonObjects1.length ;i < len;++i) {
     gdjs.LeftClickLevelCode.GDLevelSelectButtonObjects1[i].hide(false);
 }
-}{gdjs.evtTools.network.sendAsyncRequest("https://app.com/levelcomplete?${userID}&${CurrentSceneName()}", gdjs.evtTools.runtimeScene.getSceneName(runtimeScene), "POST", "", runtimeScene.getScene().getVariables().getFromIndex(1), runtimeScene.getScene().getVariables().getFromIndex(2));
+}{runtimeScene.getScene().getVariables().getFromIndex(3).setBoolean(true);
 }}
 
 }
@@ -258,6 +258,37 @@ isConditionTrue_0 = isConditionTrue_1;
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MainMenu", false);
 }}
+
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+{let isConditionTrue_1 = false;
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.variable.getVariableBoolean(runtimeScene.getScene().getVariables().getFromIndex(3), true, false);
+if (isConditionTrue_1) {
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.variable.getVariableString(runtimeScene.getScene().getVariables().getFromIndex(1)) == "0";
+}
+isConditionTrue_0 = isConditionTrue_1;
+}
+if (isConditionTrue_0) {
+{gdjs.evtTools.network.sendAsyncRequest("/api/test", "", "GET", "", runtimeScene.getScene().getVariables().getFromIndex(1), runtimeScene.getScene().getVariables().getFromIndex(2));
+}}
+
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+{
+}
 
 }
 

@@ -25,7 +25,7 @@
     "author": "",
     "windowWidth": 1920,
     "windowHeight": 1080,
-    "latestCompilationDirectory": "/home/callum/repos/kangan-game/export",
+    "latestCompilationDirectory": "/home/callum/repos/kangan-game/gdevelop/export",
     "maxFPS": 60,
     "minFPS": 30,
     "verticalSync": false,
@@ -1095,13 +1095,19 @@
           "folded": true,
           "name": "levelCompleteRes",
           "type": "string",
-          "value": "0"
+          "value": ""
         },
         {
           "folded": true,
           "name": "levelCompleteResErr",
           "type": "string",
-          "value": "0"
+          "value": ""
+        },
+        {
+          "folded": true,
+          "name": "levelComplete",
+          "type": "boolean",
+          "value": false
         }
       ],
       "instances": [
@@ -1770,15 +1776,12 @@
             },
             {
               "type": {
-                "value": "SendAsyncRequest"
+                "value": "SetBooleanVariable"
               },
               "parameters": [
-                "\"https://app.com/levelcomplete?${userID}&${CurrentSceneName()}\"",
-                "CurrentSceneName()",
-                "\"POST\"",
-                "",
-                "levelCompleteRes",
-                "levelCompleteResErr"
+                "levelComplete",
+                "True",
+                ""
               ]
             }
           ]
@@ -1917,6 +1920,59 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::And"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "BooleanVariable"
+                  },
+                  "parameters": [
+                    "levelComplete",
+                    "True",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "StringVariable"
+                  },
+                  "parameters": [
+                    "levelCompleteRes",
+                    "=",
+                    "\"0\""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SendAsyncRequest"
+              },
+              "parameters": [
+                "\"/api/test\"",
+                "\"\"",
+                "\"GET\"",
+                "",
+                "levelCompleteRes",
+                "levelCompleteResErr"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ],
       "layers": [
