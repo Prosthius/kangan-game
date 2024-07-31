@@ -16,7 +16,7 @@
     "pixelsRounding": false,
     "projectUuid": "3f8520fd-7164-47b3-87c5-cefac88e7c46",
     "scaleMode": "linear",
-    "sizeOnStartupMode": "adaptWidth",
+    "sizeOnStartupMode": "adaptHeight",
     "templateSlug": "",
     "useExternalSourceFiles": false,
     "version": "1.0.0",
@@ -26,7 +26,7 @@
     "windowWidth": 1920,
     "windowHeight": 1080,
     "latestCompilationDirectory": "/home/callum/repos/kangan-game/gdevelop/export",
-    "maxFPS": 60,
+    "maxFPS": 0,
     "minFPS": 30,
     "verticalSync": false,
     "platformSpecificAssets": {},
@@ -43,7 +43,7 @@
       "progressBarMaxWidth": 200,
       "progressBarMinWidth": 40,
       "progressBarWidthPercent": 30,
-      "showGDevelopSplash": true,
+      "showGDevelopSplash": false,
       "showProgressBar": true
     },
     "watermark": {
@@ -1959,20 +1959,15 @@
                 "value": "SendAsyncRequest"
               },
               "parameters": [
-                "\"/api/test\"",
-                "\"\"",
-                "\"GET\"",
-                "",
+                "\"/api/lc\"",
+                "\"{\\\"UserID\\\": \\\"User1\\\", \\\"LevelComplete\\\": \\\"LevelOne\\\"}\"",
+                "\"POST\"",
+                "\"application/json\"",
                 "levelCompleteRes",
                 "levelCompleteResErr"
               ]
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         }
       ],
       "layers": [
@@ -2097,6 +2092,24 @@
               "value": false
             }
           ]
+        },
+        {
+          "folded": true,
+          "name": "levelComplete",
+          "type": "boolean",
+          "value": false
+        },
+        {
+          "folded": true,
+          "name": "levelCompleteRes",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "folded": true,
+          "name": "levelCompleteResErr",
+          "type": "string",
+          "value": ""
         }
       ],
       "instances": [
@@ -3357,6 +3370,64 @@
                 "Draggable",
                 "no"
               ]
+            },
+            {
+              "type": {
+                "value": "SetBooleanVariable"
+              },
+              "parameters": [
+                "levelComplete",
+                "True",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::And"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "BooleanVariable"
+                  },
+                  "parameters": [
+                    "levelComplete",
+                    "True",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "StringVariable"
+                  },
+                  "parameters": [
+                    "levelCompleteRes",
+                    "=",
+                    "\"0\""
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SendAsyncRequest"
+              },
+              "parameters": [
+                "\"/api/lc\"",
+                "\"{\\\"UserID\\\": \\\"User1\\\", \\\"LevelComplete\\\": \\\"LevelTwo\\\"}\"",
+                "\"POST\"",
+                "\"application/json\"",
+                "levelCompleteRes",
+                "levelCompleteResErr"
+              ]
             }
           ]
         },
@@ -3494,6 +3565,11 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ],
       "layers": [

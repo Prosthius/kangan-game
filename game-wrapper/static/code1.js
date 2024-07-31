@@ -306,6 +306,28 @@ gdjs.copyArray(runtimeScene.getObjects("RestartLevelButton"), gdjs.ClickAndDragL
 }{for(var i = 0, len = gdjs.ClickAndDragLevelCode.GDTargetRoundButton3Objects1.length ;i < len;++i) {
     gdjs.ClickAndDragLevelCode.GDTargetRoundButton3Objects1[i].activateBehavior("Draggable", false);
 }
+}{runtimeScene.getScene().getVariables().getFromIndex(1).setBoolean(true);
+}}
+
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+{let isConditionTrue_1 = false;
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.variable.getVariableBoolean(runtimeScene.getScene().getVariables().getFromIndex(1), true, false);
+if (isConditionTrue_1) {
+isConditionTrue_1 = false;
+isConditionTrue_1 = gdjs.evtTools.variable.getVariableString(runtimeScene.getScene().getVariables().getFromIndex(2)) == "0";
+}
+isConditionTrue_0 = isConditionTrue_1;
+}
+if (isConditionTrue_0) {
+{gdjs.evtTools.network.sendAsyncRequest("/api/lc", "{\"UserID\": \"User1\", \"LevelComplete\": \"LevelTwo\"}", "POST", "application/json", runtimeScene.getScene().getVariables().getFromIndex(2), runtimeScene.getScene().getVariables().getFromIndex(3));
 }}
 
 }
@@ -373,6 +395,16 @@ isConditionTrue_0 = isConditionTrue_1;
 if (isConditionTrue_0) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "MainMenu", false);
 }}
+
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+{
+}
 
 }
 

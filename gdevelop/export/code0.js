@@ -277,18 +277,8 @@ isConditionTrue_1 = gdjs.evtTools.variable.getVariableString(runtimeScene.getSce
 isConditionTrue_0 = isConditionTrue_1;
 }
 if (isConditionTrue_0) {
-{gdjs.evtTools.network.sendAsyncRequest("/api/test", "", "GET", "", runtimeScene.getScene().getVariables().getFromIndex(1), runtimeScene.getScene().getVariables().getFromIndex(2));
+{gdjs.evtTools.network.sendAsyncRequest("/api/lc", "{\"UserID\": \"User1\", \"LevelComplete\": \"LevelOne\"}", "POST", "application/json", runtimeScene.getScene().getVariables().getFromIndex(1), runtimeScene.getScene().getVariables().getFromIndex(2));
 }}
-
-}
-
-
-{
-
-
-let isConditionTrue_0 = false;
-{
-}
 
 }
 
